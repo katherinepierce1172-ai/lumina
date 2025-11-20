@@ -43,12 +43,19 @@ export const getStyleAdvice = async (
     });
 
     if (response.text) {
-      // Clean up markdown code blocks if present
       let jsonStr = response.text.trim();
-      if (jsonStr.startsWith('```json')) {
-        jsonStr = jsonStr.replace(/^```json\s*/, '').replace(/\s*```$/, '');
-      } else if (jsonStr.startsWith('```')) {
-        jsonStr = jsonStr.replace(/^```\s*/, '').replace(/\s*```$/, '');
+      
+      // Robustly extract JSON array if the model includes markdown or preamble
+      const match = jsonStr.match(/\[[\s\S]*\]/);
+      if (match) {
+        jsonStr = match[0];
+      } else {
+        // Fallback cleanup for markdown code blocks if regex fails
+        if (jsonStr.startsWith('```json')) {
+          jsonStr = jsonStr.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+        } else if (jsonStr.startsWith('```')) {
+          jsonStr = jsonStr.replace(/^```\s*/, '').replace(/\s*```$/, '');
+        }
       }
       
       return JSON.parse(jsonStr) as StyleRecommendation[];
