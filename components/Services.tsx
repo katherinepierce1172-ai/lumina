@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ServiceCategory, ServiceItem } from '../types';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, Sparkles } from 'lucide-react';
 
 const servicesData: ServiceItem[] = [
   // Haircut
@@ -24,23 +24,31 @@ export const Services = () => {
   const filteredServices = servicesData.filter(s => s.category === activeCategory);
 
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-32 bg-cream relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-bold tracking-widest text-accent uppercase mb-3">Our Menu</h2>
-          <h3 className="text-4xl font-serif font-bold text-primary">Expert Care for Your Hair</h3>
+        <div className="flex flex-col items-center text-center mb-20">
+          <span className="text-accent text-xs font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-2">
+             <span className="w-8 h-px bg-accent"></span> Our Expertise <span className="w-8 h-px bg-accent"></span>
+          </span>
+          <h3 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Curated Service Menu</h3>
+          <p className="max-w-2xl text-secondary leading-relaxed">
+            Each service begins with a thorough consultation to ensure we achieve the perfect look for your lifestyle and hair texture.
+          </p>
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
           {Object.values(ServiceCategory).map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border ${
                 activeCategory === cat
-                  ? 'bg-primary text-white shadow-lg shadow-primary/20'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-primary border-primary text-white shadow-lg shadow-primary/20 transform scale-105'
+                  : 'bg-transparent border-gray-200 text-gray-500 hover:border-primary hover:text-primary'
               }`}
             >
               {cat}
@@ -49,34 +57,32 @@ export const Services = () => {
         </div>
 
         {/* Service Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {filteredServices.map((service) => (
             <div 
               key={service.id} 
-              className="group relative bg-white border border-gray-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              className="group relative bg-white rounded-[2rem] p-8 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 border border-gray-100"
             >
-              {/* Decorative background blob */}
-              <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all" />
-
-              <div className="relative z-10 flex justify-between items-start mb-4">
-                <div>
-                  <h4 className="text-xl font-bold text-primary mb-1 group-hover:text-accent transition-colors">{service.name}</h4>
+              <div className="flex justify-between items-start mb-4">
+                <div className="space-y-1">
+                  <h4 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">{service.name}</h4>
                   <div className="flex items-center gap-2 text-xs text-gray-400 font-medium uppercase tracking-wide">
                     <Clock size={14} />
                     {service.duration}
                   </div>
                 </div>
-                <div className="text-xl font-serif font-semibold text-primary">{service.price}</div>
+                <div className="text-xl font-serif font-semibold text-primary bg-gray-50 px-4 py-2 rounded-full">{service.price}</div>
               </div>
               
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-500 leading-relaxed mb-8 text-sm">
                 {service.description}
               </p>
 
-              <div className="relative z-10">
-                <button className="text-sm font-semibold text-accent flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Book This Service <ArrowRight size={16} />
+              <div className="flex items-center justify-between border-t border-gray-50 pt-6 mt-auto">
+                <button className="text-sm font-bold text-primary flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Book Appointment <ArrowRight size={16} className="text-accent" />
                 </button>
+                <Sparkles size={16} className="text-gray-200 group-hover:text-accent transition-colors" />
               </div>
             </div>
           ))}
