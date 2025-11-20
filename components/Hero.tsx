@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Sparkles, Calendar } from 'lucide-react';
 
 interface HeroProps {
@@ -6,7 +5,7 @@ interface HeroProps {
   onOpenAi: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenAi }) => {
+export const Hero = ({ onOpenBooking, onOpenAi }: HeroProps) => {
   return (
     <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}

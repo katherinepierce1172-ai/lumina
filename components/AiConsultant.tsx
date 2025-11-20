@@ -1,6 +1,5 @@
-import * as React from 'react';
 import { useState } from 'react';
-import { X, Sparkles, Send, User, Loader2 } from 'lucide-react';
+import { X, Sparkles, Send, Loader2 } from 'lucide-react';
 import { getStyleAdvice } from '../services/geminiService';
 import { StyleRecommendation } from '../types';
 
@@ -9,7 +8,7 @@ interface AiConsultantProps {
   onClose: () => void;
 }
 
-export const AiConsultant: React.FC<AiConsultantProps> = ({ isOpen, onClose }) => {
+export const AiConsultant = ({ isOpen, onClose }: AiConsultantProps) => {
   const [step, setStep] = useState<'input' | 'loading' | 'results'>('input');
   const [hairType, setHairType] = useState('');
   const [preferences, setPreferences] = useState('');

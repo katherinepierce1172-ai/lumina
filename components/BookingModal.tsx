@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { X, Calendar, CheckCircle2 } from 'lucide-react';
 
 interface BookingModalProps {
@@ -6,7 +5,7 @@ interface BookingModalProps {
   onClose: () => void;
 }
 
-export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
+export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
   if (!isOpen) return null;
 
   return (

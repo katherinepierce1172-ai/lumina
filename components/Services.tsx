@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState } from 'react';
 import { ServiceCategory, ServiceItem } from '../types';
 import { ArrowRight, Clock } from 'lucide-react';
@@ -19,7 +18,7 @@ const servicesData: ServiceItem[] = [
   { id: '8', name: 'Deep Conditioning Mask', price: '$35', duration: '15 min', description: 'Intensive moisture repair add-on service.', category: ServiceCategory.TREATMENT },
 ];
 
-export const Services: React.FC = () => {
+export const Services = () => {
   const [activeCategory, setActiveCategory] = useState<ServiceCategory>(ServiceCategory.HAIRCUT);
 
   const filteredServices = servicesData.filter(s => s.category === activeCategory);

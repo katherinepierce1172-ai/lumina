@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Scissors, Menu, X } from 'lucide-react';
 
@@ -7,7 +6,7 @@ interface NavbarProps {
   onOpenAi: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenAi }) => {
+export const Navbar = ({ onOpenBooking, onOpenAi }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

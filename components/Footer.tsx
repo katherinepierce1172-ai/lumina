@@ -1,7 +1,6 @@
-import * as React from 'react';
 import { Scissors, Instagram, Facebook, Twitter } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <footer className="bg-primary text-white pt-20 pb-8">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">

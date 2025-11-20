@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -8,7 +7,7 @@ import { AiConsultant } from './components/AiConsultant';
 import { BookingModal } from './components/BookingModal';
 import { Star } from 'lucide-react';
 
-const App: React.FC = () => {
+const App = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isAiOpen, setIsAiOpen] = useState(false);
 
