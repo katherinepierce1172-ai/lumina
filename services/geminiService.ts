@@ -43,7 +43,15 @@ export const getStyleAdvice = async (
     });
 
     if (response.text) {
-      return JSON.parse(response.text) as StyleRecommendation[];
+      // Clean up markdown code blocks if present
+      let jsonStr = response.text.trim();
+      if (jsonStr.startsWith('```json')) {
+        jsonStr = jsonStr.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+      } else if (jsonStr.startsWith('```')) {
+        jsonStr = jsonStr.replace(/^```\s*/, '').replace(/\s*```$/, '');
+      }
+      
+      return JSON.parse(jsonStr) as StyleRecommendation[];
     }
     return [];
   } catch (error) {
