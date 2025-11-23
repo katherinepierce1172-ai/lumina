@@ -8,20 +8,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              serif: ['"Cormorant Garamond"', 'serif'],
             },
             colors: {
-              primary: '#0f172a',
-              secondary: '#64748b',
-              accent: '#0d9488',
-              cream: '#fcfbf9',
+              primary: '#111827', // Cool Gray 900
+              secondary: '#4b5563', // Cool Gray 600
+              accent: '#0d9488', // Teal 600
+              surface: '#f9fafb', // Gray 50
+              cream: '#ffffff',
+            },
+            animation: {
+              'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-in': 'slide-in 0.5s ease-out forwards',
+            },
+            keyframes: {
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'slide-in': {
+                '0%': { transform: 'translateX(100%)' },
+                '100%': { transform: 'translateX(0)' },
+              }
             }
           }
         }
@@ -29,8 +44,11 @@
     </script>
     <style>
       body {
-        background-color: #fcfbf9;
+        background-color: #ffffff;
+        color: #111827;
         scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
       .hide-scrollbar::-webkit-scrollbar {
         display: none;
@@ -39,19 +57,12 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
-      /* Custom animations */
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in-up {
-        animation: fade-in-up 0.6s ease-out forwards;
+      /* Glass effect utility */
+      .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
       }
     </style>
   <script type="importmap">

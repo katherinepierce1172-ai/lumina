@@ -1,4 +1,4 @@
-import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -7,61 +7,64 @@ interface HeroProps {
 
 export const Hero = ({ onOpenBooking, onOpenAi }: HeroProps) => {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-      {/* Background Image with Parallax-like feel */}
+    <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-primary">
+      
+      {/* Background Image - Clean High Res Salon Image */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=2574&auto=format&fit=crop"
-          alt="Salon Interior"
-          className="w-full h-full object-cover opacity-60"
+          alt="Lumina Salon Interior"
+          className="w-full h-full object-cover opacity-50"
         />
-        {/* Sophisticated Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-primary/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/60 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center pt-20">
-        <div className="lg:col-span-8 space-y-10 animate-fade-in-up">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center pt-10">
+        <div className="lg:col-span-7 space-y-8 animate-fade-in-up">
           
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/80 text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/10 transition-colors cursor-default">
-            <Sparkles size={14} className="text-accent" />
-            <span>Award Winning Studio</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white/90 text-xs font-semibold tracking-wide uppercase">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            <span>Accepting New Clients</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[0.95] tracking-tight">
-            Elegance <br />
-            <span className="italic text-white/90 font-light">Redefined.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[0.9] tracking-tight">
+            Beautiful hair <br />
+            <span className="font-light italic text-white/80">starts here.</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed font-light border-l-2 border-accent pl-6">
-            Experience the art of modern hair styling. From precision cuts to transformative color, our master stylists are here to unveil your best self.
+          <p className="text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed font-light">
+            Modern styling for the modern individual. We combine artistry with AI-powered consultation to find your perfect look.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               onClick={onOpenBooking}
-              className="group px-8 py-4 bg-accent text-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-accent/90 hover:shadow-[0_0_20px_rgba(13,148,136,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3"
+              className="px-8 py-4 bg-white text-primary hover:bg-gray-100 rounded-full font-bold text-base transition-all transform hover:-translate-y-1 shadow-[0_0_25px_rgba(255,255,255,0.2)]"
             >
-              <Calendar size={20} />
-              <span>Book Appointment</span>
+              Book Appointment
             </button>
             <button
               onClick={onOpenAi}
-              className="group px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-3"
+              className="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white rounded-full font-semibold text-base transition-all flex items-center justify-center gap-2 group"
             >
-              <Sparkles size={20} className="text-yellow-300 group-hover:scale-110 transition-transform" />
-              <span>AI Style Consultant</span>
-              <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+              <Sparkles size={18} className="text-accent group-hover:rotate-12 transition-transform" />
+              <span>Try AI Consultant</span>
+              <ArrowRight size={18} className="opacity-60 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
+          
+          <div className="pt-8 flex items-center gap-8 text-white/40 text-sm font-medium">
+             <div className="flex -space-x-3">
+               <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" className="w-10 h-10 rounded-full border-2 border-primary object-cover" />
+               <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" className="w-10 h-10 rounded-full border-2 border-primary object-cover" />
+               <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=64&h=64" className="w-10 h-10 rounded-full border-2 border-primary object-cover" />
+               <div className="w-10 h-10 rounded-full border-2 border-primary bg-accent flex items-center justify-center text-white text-xs font-bold">+2k</div>
+             </div>
+             <p>Happy Clients <br/> this year.</p>
+          </div>
+
         </div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/40 animate-bounce">
-        <span className="text-[10px] tracking-[0.3em] uppercase font-medium">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
