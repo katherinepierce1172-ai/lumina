@@ -27,16 +27,16 @@ export const Navbar = ({ onOpenBooking, onOpenAi }: NavbarProps) => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+        isScrolled ? 'glass py-3' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className={`p-2 rounded-lg transition-colors ${isScrolled ? 'bg-primary text-white' : 'bg-white text-primary'}`}>
+          <div className={`p-2 rounded-lg transition-colors ${isScrolled ? 'bg-primary text-white' : 'bg-white text-primary shadow-sm'}`}>
             <Scissors size={20} />
           </div>
-          <span className={`text-2xl font-serif font-bold tracking-tight ${isScrolled ? 'text-primary' : 'text-white'}`}>
+          <span className={`text-2xl font-serif font-bold tracking-tight ${isScrolled ? 'text-primary' : 'text-primary'}`}>
             Lumina
           </span>
         </div>
@@ -50,7 +50,7 @@ export const Navbar = ({ onOpenBooking, onOpenAi }: NavbarProps) => {
               className={`text-sm font-medium tracking-wide transition-colors ${
                 isScrolled 
                   ? 'text-secondary hover:text-primary' 
-                  : 'text-white/80 hover:text-white'
+                  : 'text-gray-600 hover:text-primary'
               }`}
             >
               {link.name}
@@ -62,10 +62,10 @@ export const Navbar = ({ onOpenBooking, onOpenAi }: NavbarProps) => {
         <div className="hidden lg:flex items-center gap-3">
            <button
             onClick={onOpenAi}
-            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 border ${
               isScrolled
-                ? 'bg-surface text-primary hover:bg-gray-100 border border-gray-200'
-                : 'bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20'
+                ? 'bg-surface text-primary hover:bg-gray-200 border-gray-200'
+                : 'bg-white text-primary border-gray-200 hover:bg-gray-50'
             }`}
           >
             <Sparkles size={16} className="text-accent" />
@@ -73,7 +73,7 @@ export const Navbar = ({ onOpenBooking, onOpenAi }: NavbarProps) => {
           </button>
           <button
             onClick={onOpenBooking}
-            className="px-6 py-2.5 bg-primary text-white hover:bg-gray-900 rounded-full text-sm font-semibold shadow-lg shadow-gray-200/50 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+            className="px-6 py-2.5 bg-primary text-white hover:bg-gray-800 rounded-full text-sm font-semibold shadow-lg shadow-gray-200/50 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
           >
             Book Now
           </button>
@@ -81,7 +81,7 @@ export const Navbar = ({ onOpenBooking, onOpenAi }: NavbarProps) => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`lg:hidden p-2 rounded-md ${isScrolled ? 'text-primary' : 'text-white'}`}
+          className={`lg:hidden p-2 rounded-md text-primary`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

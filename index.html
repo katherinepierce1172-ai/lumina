@@ -8,20 +8,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-              serif: ['"Cormorant Garamond"', 'serif'],
+              serif: ['"Playfair Display"', 'serif'],
             },
             colors: {
-              primary: '#111827', // Cool Gray 900
+              primary: '#1a1a1a', // Soft Black
               secondary: '#4b5563', // Cool Gray 600
               accent: '#0d9488', // Teal 600
-              surface: '#f9fafb', // Gray 50
+              surface: '#f3f4f6', // Light Gray
               cream: '#ffffff',
             },
             animation: {
@@ -45,7 +45,7 @@
     <style>
       body {
         background-color: #ffffff;
-        color: #111827;
+        color: #1a1a1a;
         scroll-behavior: smooth;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -59,7 +59,7 @@
       }
       /* Glass effect utility */
       .glass {
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(0,0,0,0.05);
